@@ -1,11 +1,13 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package com.baker.friendsvsfriendsinfogetter;
 
 import com.baker.firstInterface.FirstScreen;
 import com.baker.firstInterface.UserInfoPanel;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import javax.swing.UIManager;
 
 /**
  *
@@ -15,13 +17,18 @@ public class FriendsVsFriendsInfoGetter {
 
     public static void main(String[] args) {
         try {
+            //Try to start the look and feel
+            try {
+                FlatMacDarkLaf.setup();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            //Starting the initial screen
             FirstScreen initialScreen = new FirstScreen();
             initialScreen.sendApiInfo();
-            
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
-        
+
     }
 }

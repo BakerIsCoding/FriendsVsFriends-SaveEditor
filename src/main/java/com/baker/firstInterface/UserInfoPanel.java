@@ -4,6 +4,8 @@
  */
 package com.baker.firstInterface;
 
+import com.baker.simpleExceptions.SimpleException;
+import com.baker.utils.TypesChangers;
 import org.json.JSONObject;
 
 /**
@@ -15,30 +17,61 @@ public class UserInfoPanel extends javax.swing.JPanel {
     /**
      * Creates new form UserInfoPanel
      */
-    public UserInfoPanel(JSONObject allUserDataa) {
+    public UserInfoPanel(JSONObject allUserDataa) throws SimpleException {
         initComponents();
         // Set size and location
-        setSize(600, 545);
+        setSize(625, 475);
         setLocation(0, 0);
-        
+
         //Getting json data, and adding it to the variables
         allData = allUserDataa;
         userData = allData.getJSONObject("user");
-        
+
         System.out.println(allData);
         //Calling writeOnLabels to write all the data on the labels lol
-        writeOnLabels();
+        userInfoWriteOnLabels();
     }
 
     private final JSONObject allData;
     private JSONObject userData;
-    
-    private void writeOnLabels(){
-        
-        String userNickname = userData.getString("nickname");
-        jLabel3.setText(userNickname);
-    }
 
+    private void userInfoWriteOnLabels() throws SimpleException {
+        TypesChangers utils = new TypesChangers();
+        try {
+            // All data in variables
+            String userNickname = userData.getString("nickname");
+            String money = utils.integerToString(userData.getInt("money"));
+            String gems = utils.integerToString(userData.getInt("gems"));
+            String level = utils.integerToString(userData.getInt("level"));
+            String exp = utils.integerToString(userData.getInt("exp"));
+            String creationDate = userData.getString("createdAt");
+            String isCheater = utils.booleanToString(userData.getBoolean("cheater"));
+            String isHardCheater = utils.booleanToString(userData.getBoolean("hardCheater"));
+            String isUserBanned = (userData.getInt("banned") == 0) ? "No" : "Yes";
+            String friendCode = userData.getString("friendCode");;
+            String isDeveloper = utils.booleanToString(userData.getBoolean("isDeveloper"));
+            
+            //Writing the data into the placeholders
+            
+            UsernamePlaceHolder.setText(userNickname);
+            MoneyPlaceholder.setText(money);
+            GemsPlaceholder.setText(gems);
+            LevelPlaceholder.setText(level);
+            ExpPlaceHolder.setText(exp);
+            AccouintCreationPlaceHolder.setText(creationDate.split("T")[0]);
+            CheaterPlaceholder.setText(isCheater);
+            HardCheaterPlaceholder.setText(isHardCheater);
+            UserBannedPlaceholder.setText(isUserBanned);
+            FriendCodePlaceHolder.setText(friendCode);
+            DeveloperPlaceHolder.setText(isDeveloper);
+            
+            
+        } catch (org.json.JSONException e) {
+            throw new SimpleException("Error while extracting information about your account, contact the developer. \n" + e.getMessage());
+        }
+
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,79 +82,268 @@ public class UserInfoPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        userContent = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        materialTabbed1 = new com.baker.tabbed.MaterialTabbed();
+        Home = new javax.swing.JPanel();
+        userInfoPanel = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        UsernameText = new javax.swing.JLabel();
+        UsernamePlaceHolder = new javax.swing.JLabel();
+        AccountText = new javax.swing.JLabel();
+        AccouintCreationPlaceHolder = new javax.swing.JLabel();
+        UserBannedText = new javax.swing.JLabel();
+        UserBannedPlaceholder = new javax.swing.JLabel();
+        CheaterText = new javax.swing.JLabel();
+        CheaterPlaceholder = new javax.swing.JLabel();
+        HardCheaterText = new javax.swing.JLabel();
+        HardCheaterPlaceholder = new javax.swing.JLabel();
+        GemsText = new javax.swing.JLabel();
+        GemsPlaceholder = new javax.swing.JLabel();
+        MoneyText = new javax.swing.JLabel();
+        MoneyPlaceholder = new javax.swing.JLabel();
+        LevelText = new javax.swing.JLabel();
+        LevelPlaceholder = new javax.swing.JLabel();
+        ExpText = new javax.swing.JLabel();
+        ExpPlaceHolder = new javax.swing.JLabel();
+        FriendCodeText = new javax.swing.JLabel();
+        FriendCodePlaceHolder = new javax.swing.JLabel();
+        DeveloperText = new javax.swing.JLabel();
+        DeveloperPlaceHolder = new javax.swing.JLabel();
 
-        userContent.setBackground(new java.awt.Color(62, 62, 62));
-        userContent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        materialTabbed1.setBackground(new java.awt.Color(62, 62, 62));
+        materialTabbed1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("User Info");
-
-        jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
-        jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Username: ");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel3.setText("jLabel3");
-
-        javax.swing.GroupLayout userContentLayout = new javax.swing.GroupLayout(userContent);
-        userContent.setLayout(userContentLayout);
-        userContentLayout.setHorizontalGroup(
-            userContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
-            .addGroup(userContentLayout.createSequentialGroup()
-                .addGroup(userContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(userContentLayout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(jLabel1))
-                    .addGroup(userContentLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
-                .addContainerGap(240, Short.MAX_VALUE))
+        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
+        Home.setLayout(HomeLayout);
+        HomeLayout.setHorizontalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
-        userContentLayout.setVerticalGroup(
-            userContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(userContentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+        HomeLayout.setVerticalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 432, Short.MAX_VALUE)
+        );
+
+        materialTabbed1.addTab("Home", Home);
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        UsernameText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        UsernameText.setText("Username: ");
+
+        UsernamePlaceHolder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        UsernamePlaceHolder.setForeground(new java.awt.Color(204, 147, 224));
+        UsernamePlaceHolder.setText("placeholder");
+
+        AccountText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AccountText.setText("Creation date:");
+
+        AccouintCreationPlaceHolder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        AccouintCreationPlaceHolder.setForeground(new java.awt.Color(200, 155, 216));
+        AccouintCreationPlaceHolder.setText("placeholder");
+
+        UserBannedText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        UserBannedText.setText("User Banned: ");
+
+        UserBannedPlaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        UserBannedPlaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        UserBannedPlaceholder.setText("placeholder");
+
+        CheaterText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CheaterText.setText("Cheater: ");
+
+        CheaterPlaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        CheaterPlaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        CheaterPlaceholder.setText("placeholder");
+
+        HardCheaterText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        HardCheaterText.setText("Hard Cheater: ");
+
+        HardCheaterPlaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        HardCheaterPlaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        HardCheaterPlaceholder.setText("placeholder");
+
+        GemsText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        GemsText.setText("Gems:");
+
+        GemsPlaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GemsPlaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        GemsPlaceholder.setText("placeholder");
+
+        MoneyText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        MoneyText.setText("Money:");
+
+        MoneyPlaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MoneyPlaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        MoneyPlaceholder.setText("placeholder");
+
+        LevelText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        LevelText.setText("Level:");
+
+        LevelPlaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        LevelPlaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        LevelPlaceholder.setText("placeholder");
+
+        ExpText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ExpText.setText("Exp:");
+
+        ExpPlaceHolder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ExpPlaceHolder.setForeground(new java.awt.Color(200, 155, 216));
+        ExpPlaceHolder.setText("placeholder");
+
+        FriendCodeText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        FriendCodeText.setText("Friend Code:");
+
+        FriendCodePlaceHolder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        FriendCodePlaceHolder.setForeground(new java.awt.Color(200, 155, 216));
+        FriendCodePlaceHolder.setText("placeholder");
+
+        DeveloperText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        DeveloperText.setText("Developer:");
+
+        DeveloperPlaceHolder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        DeveloperPlaceHolder.setForeground(new java.awt.Color(200, 155, 216));
+        DeveloperPlaceHolder.setText("placeholder");
+
+        javax.swing.GroupLayout userInfoPanelLayout = new javax.swing.GroupLayout(userInfoPanel);
+        userInfoPanel.setLayout(userInfoPanelLayout);
+        userInfoPanelLayout.setHorizontalGroup(
+            userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userInfoPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ExpText)
+                    .addComponent(LevelText)
+                    .addComponent(UsernameText)
+                    .addComponent(MoneyText)
+                    .addComponent(GemsText)
+                    .addComponent(FriendCodeText))
+                .addGap(28, 28, 28)
+                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(UsernamePlaceHolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MoneyPlaceholder)
+                    .addComponent(GemsPlaceholder)
+                    .addComponent(LevelPlaceholder)
+                    .addComponent(ExpPlaceHolder)
+                    .addComponent(FriendCodePlaceHolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(userContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addContainerGap(440, Short.MAX_VALUE))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userInfoPanelLayout.createSequentialGroup()
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(UserBannedText)
+                            .addComponent(DeveloperText)
+                            .addComponent(HardCheaterText))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CheaterPlaceholder)
+                            .addComponent(HardCheaterPlaceholder)
+                            .addComponent(AccouintCreationPlaceHolder)
+                            .addComponent(UserBannedPlaceholder)
+                            .addComponent(DeveloperPlaceHolder)))
+                    .addComponent(AccountText)
+                    .addComponent(CheaterText))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
+        userInfoPanelLayout.setVerticalGroup(
+            userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userInfoPanelLayout.createSequentialGroup()
+                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(userInfoPanelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(UsernameText)
+                            .addComponent(UsernamePlaceHolder))
+                        .addGap(30, 30, 30)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(FriendCodePlaceHolder)
+                            .addComponent(FriendCodeText))
+                        .addGap(30, 30, 30)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MoneyText)
+                            .addComponent(MoneyPlaceholder))
+                        .addGap(30, 30, 30)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(GemsText)
+                            .addComponent(GemsPlaceholder))
+                        .addGap(30, 30, 30)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LevelText)
+                            .addComponent(LevelPlaceholder))
+                        .addGap(30, 30, 30)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ExpText)
+                            .addComponent(ExpPlaceHolder))
+                        .addGap(0, 97, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(userInfoPanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AccouintCreationPlaceHolder)
+                    .addComponent(AccountText))
+                .addGap(30, 30, 30)
+                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CheaterPlaceholder)
+                    .addComponent(CheaterText))
+                .addGap(30, 30, 30)
+                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(HardCheaterPlaceholder)
+                    .addComponent(HardCheaterText))
+                .addGap(30, 30, 30)
+                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UserBannedPlaceholder)
+                    .addComponent(UserBannedText))
+                .addGap(30, 30, 30)
+                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DeveloperPlaceHolder)
+                    .addComponent(DeveloperText))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        materialTabbed1.addTab("User Stats", userInfoPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(userContent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(materialTabbed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(userContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(materialTabbed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        materialTabbed1.getAccessibleContext().setAccessibleName("userInfo");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel AccouintCreationPlaceHolder;
+    private javax.swing.JLabel AccountText;
+    private javax.swing.JLabel CheaterPlaceholder;
+    private javax.swing.JLabel CheaterText;
+    private javax.swing.JLabel DeveloperPlaceHolder;
+    private javax.swing.JLabel DeveloperText;
+    private javax.swing.JLabel ExpPlaceHolder;
+    private javax.swing.JLabel ExpText;
+    private javax.swing.JLabel FriendCodePlaceHolder;
+    private javax.swing.JLabel FriendCodeText;
+    private javax.swing.JLabel GemsPlaceholder;
+    private javax.swing.JLabel GemsText;
+    private javax.swing.JLabel HardCheaterPlaceholder;
+    private javax.swing.JLabel HardCheaterText;
+    private javax.swing.JPanel Home;
+    private javax.swing.JLabel LevelPlaceholder;
+    private javax.swing.JLabel LevelText;
+    private javax.swing.JLabel MoneyPlaceholder;
+    private javax.swing.JLabel MoneyText;
+    private javax.swing.JLabel UserBannedPlaceholder;
+    private javax.swing.JLabel UserBannedText;
+    private javax.swing.JLabel UsernamePlaceHolder;
+    private javax.swing.JLabel UsernameText;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JPanel userContent;
+    private com.baker.tabbed.MaterialTabbed materialTabbed1;
+    private javax.swing.JPanel userInfoPanel;
     // End of variables declaration//GEN-END:variables
 }

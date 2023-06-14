@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.baker.Requests;
-import com.baker.jsonParser.JsonParser;
+import com.baker.utils.JsonParser;
 import com.baker.simpleExceptions.SimpleException;
 import java.io.BufferedReader;
 import java.io.IOException;

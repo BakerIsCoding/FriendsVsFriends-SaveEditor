@@ -6,11 +6,13 @@ package com.baker.firstInterface;
 
 import com.baker.Requests.RequestGet;
 import com.baker.simpleExceptions.SimpleException;
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import java.awt.BorderLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import org.json.JSONObject;
 
 /**
@@ -67,18 +69,12 @@ public class FirstScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        content.setBackground(new java.awt.Color(62, 62, 62));
-
         Title.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Title.setForeground(new java.awt.Color(255, 255, 255));
         Title.setText("Input your Friends VS Friends auth-token");
 
-        authTokenTextField.setBackground(new java.awt.Color(102, 102, 102));
         authTokenTextField.setForeground(new java.awt.Color(255, 255, 255));
         authTokenTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
 
-        doneButton.setBackground(new java.awt.Color(204, 204, 204));
-        doneButton.setForeground(new java.awt.Color(0, 0, 0));
         doneButton.setText("Next");
         doneButton.setFocusPainted(false);
         doneButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,9 +94,7 @@ public class FirstScreen extends javax.swing.JFrame {
             }
         });
 
-        separator.setBackground(new java.awt.Color(102, 102, 102));
-        separator.setForeground(new java.awt.Color(102, 102, 102));
-        separator.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        separator.setForeground(new java.awt.Color(200, 155, 216));
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
@@ -163,6 +157,7 @@ public class FirstScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_doneButtonMouseClicked
 
     private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
+        // Get the user input
         String authToken = authTokenTextField.getText();
         try {
             if (!authToken.isEmpty()) {
@@ -180,7 +175,7 @@ public class FirstScreen extends javax.swing.JFrame {
                 content.repaint();
                 
                 // Size and location
-                setSize(600, 545);
+                setSize(625, 475);
                 setLocation(0, 0);
                 setLocationRelativeTo(null);
                 infoPanel.setVisible(true);
