@@ -175,7 +175,7 @@ public class FirstScreen extends javax.swing.JFrame {
                 content.repaint();
                 
                 // Size and location
-                setSize(625, 475);
+                setSize(584, 578);
                 setLocation(0, 0);
                 setLocationRelativeTo(null);
                 infoPanel.setVisible(true);

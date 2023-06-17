@@ -20,25 +20,35 @@ public class UserInfoPanel extends javax.swing.JPanel {
     public UserInfoPanel(JSONObject allUserDataa) throws SimpleException {
         initComponents();
         // Set size and location
-        setSize(625, 475);
+        setSize(584, 578);
         setLocation(0, 0);
 
-        //Getting json data, and adding it to the variables
+        
+        userInfoWriteOnLabels(allUserDataa);
+    }
+
+    private JSONObject allData;
+    private JSONObject userData;
+    private JSONObject userStat;
+
+    private void userInfoWriteOnLabels(JSONObject allUserDataa) throws SimpleException {
+        try {
+            //Getting json data, and adding it to the variables
         allData = allUserDataa;
         userData = allData.getJSONObject("user");
+        userStat = userData.getJSONObject("stats");
 
         System.out.println(allData);
         //Calling writeOnLabels to write all the data on the labels lol
-        userInfoWriteOnLabels();
-    }
-
-    private final JSONObject allData;
-    private JSONObject userData;
-
-    private void userInfoWriteOnLabels() throws SimpleException {
+        
+        } catch (org.json.JSONException e) {
+            throw new SimpleException("Something went wrong while searching in the json request, \n" + e.getMessage());
+            
+        }
         TypesChangers utils = new TypesChangers();
         try {
             // All data in variables
+            // Left Screen
             String userNickname = userData.getString("nickname");
             String money = utils.integerToString(userData.getInt("money"));
             String gems = utils.integerToString(userData.getInt("gems"));
@@ -51,8 +61,17 @@ public class UserInfoPanel extends javax.swing.JPanel {
             String friendCode = userData.getString("friendCode");;
             String isDeveloper = utils.booleanToString(userData.getBoolean("isDeveloper"));
             
-            //Writing the data into the placeholders
+            // Right screen
+            String packsOpened = utils.integerToString(userStat.getInt("lifetimePacksOpened"));
+            String victories = utils.integerToString(userStat.getInt("lifetimeVictories"));
+            String ties = utils.integerToString(userStat.getInt("lifetimeTies"));
+            String winStreak = utils.integerToString(userStat.getInt("winStreak"));
+            String packsBought = utils.integerToString(userStat.getInt("lifetimePacksBought"));
+            String totalMatches = utils.integerToString(userStat.getInt("totalMatches"));
+            String defeats = utils.integerToString(userStat.getInt("lifetimeDefeats"));
             
+            // Writing the data into the placeholders
+            // Left Screen
             UsernamePlaceHolder.setText(userNickname);
             MoneyPlaceholder.setText(money);
             GemsPlaceholder.setText(gems);
@@ -60,10 +79,19 @@ public class UserInfoPanel extends javax.swing.JPanel {
             ExpPlaceHolder.setText(exp);
             AccouintCreationPlaceHolder.setText(creationDate.split("T")[0]);
             CheaterPlaceholder.setText(isCheater);
-            HardCheaterPlaceholder.setText(isHardCheater);
             UserBannedPlaceholder.setText(isUserBanned);
             FriendCodePlaceHolder.setText(friendCode);
             DeveloperPlaceHolder.setText(isDeveloper);
+            
+            //Right Screen
+            Packsopenedplaceholder.setText(packsOpened);
+            victoriesplaceholder.setText(victories);
+            tiesplaceholder.setText(ties);
+            winstreakplaceholder.setText(winStreak);
+            Packsboughtplaceholder.setText(packsBought);
+            totalMatchesPlaceholder.setText(totalMatches);
+            defeatsplaceholder.setText(defeats);
+            
             
             
         } catch (org.json.JSONException e) {
@@ -82,8 +110,8 @@ public class UserInfoPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        materialTabbed1 = new com.baker.tabbed.MaterialTabbed();
-        Home = new javax.swing.JPanel();
+        AllPanels = new com.baker.tabbed.MaterialTabbed();
+        home = new javax.swing.JPanel();
         userInfoPanel = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         UsernameText = new javax.swing.JLabel();
@@ -94,8 +122,6 @@ public class UserInfoPanel extends javax.swing.JPanel {
         UserBannedPlaceholder = new javax.swing.JLabel();
         CheaterText = new javax.swing.JLabel();
         CheaterPlaceholder = new javax.swing.JLabel();
-        HardCheaterText = new javax.swing.JLabel();
-        HardCheaterPlaceholder = new javax.swing.JLabel();
         GemsText = new javax.swing.JLabel();
         GemsPlaceholder = new javax.swing.JLabel();
         MoneyText = new javax.swing.JLabel();
@@ -108,23 +134,42 @@ public class UserInfoPanel extends javax.swing.JPanel {
         FriendCodePlaceHolder = new javax.swing.JLabel();
         DeveloperText = new javax.swing.JLabel();
         DeveloperPlaceHolder = new javax.swing.JLabel();
+        OtherTitle = new javax.swing.JLabel();
+        packsopenedtext = new javax.swing.JLabel();
+        Packsopenedplaceholder = new javax.swing.JLabel();
+        victoriestext = new javax.swing.JLabel();
+        victoriesplaceholder = new javax.swing.JLabel();
+        tiestext = new javax.swing.JLabel();
+        tiesplaceholder = new javax.swing.JLabel();
+        defeatsplaceholder = new javax.swing.JLabel();
+        defeatstext = new javax.swing.JLabel();
+        winstraktext = new javax.swing.JLabel();
+        winstreakplaceholder = new javax.swing.JLabel();
+        totalmatchestext = new javax.swing.JLabel();
+        totalMatchesPlaceholder = new javax.swing.JLabel();
+        packsboughttext = new javax.swing.JLabel();
+        Packsboughtplaceholder = new javax.swing.JLabel();
+        OtherTitle1 = new javax.swing.JLabel();
+        saveEditor = new javax.swing.JPanel();
+        OtherTitle2 = new javax.swing.JLabel();
 
-        materialTabbed1.setBackground(new java.awt.Color(62, 62, 62));
-        materialTabbed1.setForeground(new java.awt.Color(255, 255, 255));
+        AllPanels.setBackground(new java.awt.Color(62, 62, 62));
+        AllPanels.setForeground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
-        Home.setLayout(HomeLayout);
-        HomeLayout.setHorizontalGroup(
-            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+        javax.swing.GroupLayout homeLayout = new javax.swing.GroupLayout(home);
+        home.setLayout(homeLayout);
+        homeLayout.setHorizontalGroup(
+            homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 605, Short.MAX_VALUE)
         );
-        HomeLayout.setVerticalGroup(
-            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+        homeLayout.setVerticalGroup(
+            homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 515, Short.MAX_VALUE)
         );
 
-        materialTabbed1.addTab("Home", Home);
+        AllPanels.addTab("Home", home);
 
+        jSeparator1.setForeground(new java.awt.Color(200, 155, 216));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         UsernameText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -154,13 +199,6 @@ public class UserInfoPanel extends javax.swing.JPanel {
         CheaterPlaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         CheaterPlaceholder.setForeground(new java.awt.Color(200, 155, 216));
         CheaterPlaceholder.setText("placeholder");
-
-        HardCheaterText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        HardCheaterText.setText("Hard Cheater: ");
-
-        HardCheaterPlaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        HardCheaterPlaceholder.setForeground(new java.awt.Color(200, 155, 216));
-        HardCheaterPlaceholder.setText("placeholder");
 
         GemsText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         GemsText.setText("Gems:");
@@ -204,123 +242,261 @@ public class UserInfoPanel extends javax.swing.JPanel {
         DeveloperPlaceHolder.setForeground(new java.awt.Color(200, 155, 216));
         DeveloperPlaceHolder.setText("placeholder");
 
+        OtherTitle.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        OtherTitle.setText("Other");
+
+        packsopenedtext.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        packsopenedtext.setText("Packs opened:");
+
+        Packsopenedplaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Packsopenedplaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        Packsopenedplaceholder.setText("placeholder");
+
+        victoriestext.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        victoriestext.setText("Victories:");
+
+        victoriesplaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        victoriesplaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        victoriesplaceholder.setText("placeholder");
+
+        tiestext.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tiestext.setText("Ties:");
+
+        tiesplaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tiesplaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        tiesplaceholder.setText("placeholder");
+
+        defeatsplaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        defeatsplaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        defeatsplaceholder.setText("placeholder");
+
+        defeatstext.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        defeatstext.setText("Defeats:");
+
+        winstraktext.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        winstraktext.setText("Winstreak:");
+
+        winstreakplaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        winstreakplaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        winstreakplaceholder.setText("placeholder");
+
+        totalmatchestext.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        totalmatchestext.setText("Total Matches:");
+
+        totalMatchesPlaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        totalMatchesPlaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        totalMatchesPlaceholder.setText("placeholder");
+
+        packsboughttext.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        packsboughttext.setText("Packs Bought:");
+
+        Packsboughtplaceholder.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Packsboughtplaceholder.setForeground(new java.awt.Color(200, 155, 216));
+        Packsboughtplaceholder.setText("placeholder");
+
+        OtherTitle1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        OtherTitle1.setText("User Info");
+
         javax.swing.GroupLayout userInfoPanelLayout = new javax.swing.GroupLayout(userInfoPanel);
         userInfoPanel.setLayout(userInfoPanelLayout);
         userInfoPanelLayout.setHorizontalGroup(
             userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userInfoPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ExpText)
-                    .addComponent(LevelText)
-                    .addComponent(UsernameText)
-                    .addComponent(MoneyText)
-                    .addComponent(GemsText)
-                    .addComponent(FriendCodeText))
-                .addGap(28, 28, 28)
-                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(UsernamePlaceHolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MoneyPlaceholder)
-                    .addComponent(GemsPlaceholder)
-                    .addComponent(LevelPlaceholder)
-                    .addComponent(ExpPlaceHolder)
-                    .addComponent(FriendCodePlaceHolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(userInfoPanelLayout.createSequentialGroup()
                 .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(userInfoPanelLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(userInfoPanelLayout.createSequentialGroup()
+                                .addComponent(DeveloperText)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(DeveloperPlaceHolder))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userInfoPanelLayout.createSequentialGroup()
+                                .addComponent(UserBannedText)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(UserBannedPlaceholder))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userInfoPanelLayout.createSequentialGroup()
+                                .addComponent(CheaterText)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CheaterPlaceholder))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userInfoPanelLayout.createSequentialGroup()
+                                .addComponent(AccountText)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                                .addComponent(AccouintCreationPlaceHolder))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userInfoPanelLayout.createSequentialGroup()
+                                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ExpText)
+                                    .addComponent(LevelText)
+                                    .addComponent(UsernameText)
+                                    .addComponent(MoneyText)
+                                    .addComponent(GemsText)
+                                    .addComponent(FriendCodeText))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(UsernamePlaceHolder)
+                                    .addComponent(MoneyPlaceholder)
+                                    .addComponent(GemsPlaceholder)
+                                    .addComponent(LevelPlaceholder)
+                                    .addComponent(ExpPlaceHolder)
+                                    .addComponent(FriendCodePlaceHolder))))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userInfoPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(OtherTitle1)
+                        .addGap(99, 99, 99)))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userInfoPanelLayout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(OtherTitle)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(userInfoPanelLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
                         .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(UserBannedText)
-                            .addComponent(DeveloperText)
-                            .addComponent(HardCheaterText))
-                        .addGap(18, 18, 18)
-                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CheaterPlaceholder)
-                            .addComponent(HardCheaterPlaceholder)
-                            .addComponent(AccouintCreationPlaceHolder)
-                            .addComponent(UserBannedPlaceholder)
-                            .addComponent(DeveloperPlaceHolder)))
-                    .addComponent(AccountText)
-                    .addComponent(CheaterText))
-                .addContainerGap(97, Short.MAX_VALUE))
+                            .addComponent(victoriestext)
+                            .addComponent(tiestext)
+                            .addComponent(packsopenedtext)
+                            .addComponent(defeatstext)
+                            .addComponent(totalmatchestext)
+                            .addComponent(packsboughttext)
+                            .addComponent(winstraktext))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Packsopenedplaceholder, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Packsboughtplaceholder, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(victoriesplaceholder, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tiesplaceholder, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(defeatsplaceholder, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(winstreakplaceholder, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(totalMatchesPlaceholder, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(28, 28, 28))))
         );
         userInfoPanelLayout.setVerticalGroup(
             userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userInfoPanelLayout.createSequentialGroup()
+                .addComponent(jSeparator1)
+                .addContainerGap())
+            .addGroup(userInfoPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(userInfoPanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addComponent(OtherTitle1)
+                        .addGap(27, 27, 27)
                         .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(UsernameText)
                             .addComponent(UsernamePlaceHolder))
-                        .addGap(30, 30, 30)
+                        .addGap(18, 18, 18)
                         .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(FriendCodePlaceHolder)
                             .addComponent(FriendCodeText))
-                        .addGap(30, 30, 30)
+                        .addGap(18, 18, 18)
                         .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(MoneyText)
                             .addComponent(MoneyPlaceholder))
-                        .addGap(30, 30, 30)
+                        .addGap(18, 18, 18)
                         .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(GemsText)
                             .addComponent(GemsPlaceholder))
-                        .addGap(30, 30, 30)
+                        .addGap(18, 18, 18)
                         .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(LevelText)
                             .addComponent(LevelPlaceholder))
-                        .addGap(30, 30, 30)
+                        .addGap(18, 18, 18)
                         .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ExpText)
                             .addComponent(ExpPlaceHolder))
-                        .addGap(0, 97, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(userInfoPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AccouintCreationPlaceHolder)
-                    .addComponent(AccountText))
-                .addGap(30, 30, 30)
-                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CheaterPlaceholder)
-                    .addComponent(CheaterText))
-                .addGap(30, 30, 30)
-                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HardCheaterPlaceholder)
-                    .addComponent(HardCheaterText))
-                .addGap(30, 30, 30)
-                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UserBannedPlaceholder)
-                    .addComponent(UserBannedText))
-                .addGap(30, 30, 30)
-                .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DeveloperPlaceHolder)
-                    .addComponent(DeveloperText))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AccountText)
+                            .addComponent(AccouintCreationPlaceHolder))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CheaterText)
+                            .addComponent(CheaterPlaceholder))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(UserBannedText)
+                            .addComponent(UserBannedPlaceholder))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DeveloperText)
+                            .addComponent(DeveloperPlaceHolder))
+                        .addContainerGap(45, Short.MAX_VALUE))
+                    .addGroup(userInfoPanelLayout.createSequentialGroup()
+                        .addComponent(OtherTitle)
+                        .addGap(27, 27, 27)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(packsboughttext)
+                            .addComponent(Packsboughtplaceholder))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(packsopenedtext)
+                            .addComponent(Packsopenedplaceholder))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(victoriestext)
+                            .addComponent(victoriesplaceholder))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tiestext)
+                            .addComponent(tiesplaceholder))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(defeatstext)
+                            .addComponent(defeatsplaceholder))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(winstraktext)
+                            .addComponent(winstreakplaceholder))
+                        .addGap(18, 18, 18)
+                        .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(totalmatchestext)
+                            .addComponent(totalMatchesPlaceholder))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        materialTabbed1.addTab("User Stats", userInfoPanel);
+        AllPanels.addTab("User Stats", userInfoPanel);
+
+        OtherTitle2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        OtherTitle2.setText("Panel God");
+
+        javax.swing.GroupLayout saveEditorLayout = new javax.swing.GroupLayout(saveEditor);
+        saveEditor.setLayout(saveEditorLayout);
+        saveEditorLayout.setHorizontalGroup(
+            saveEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(saveEditorLayout.createSequentialGroup()
+                .addGap(264, 264, 264)
+                .addComponent(OtherTitle2)
+                .addContainerGap(254, Short.MAX_VALUE))
+        );
+        saveEditorLayout.setVerticalGroup(
+            saveEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(saveEditorLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(OtherTitle2)
+                .addContainerGap(471, Short.MAX_VALUE))
+        );
+
+        AllPanels.addTab("Save Editor", saveEditor);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(materialTabbed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(AllPanels, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(materialTabbed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(AllPanels, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        materialTabbed1.getAccessibleContext().setAccessibleName("userInfo");
+        AllPanels.getAccessibleContext().setAccessibleName("userInfo");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AccouintCreationPlaceHolder;
     private javax.swing.JLabel AccountText;
+    private com.baker.tabbed.MaterialTabbed AllPanels;
     private javax.swing.JLabel CheaterPlaceholder;
     private javax.swing.JLabel CheaterText;
     private javax.swing.JLabel DeveloperPlaceHolder;
@@ -331,19 +507,34 @@ public class UserInfoPanel extends javax.swing.JPanel {
     private javax.swing.JLabel FriendCodeText;
     private javax.swing.JLabel GemsPlaceholder;
     private javax.swing.JLabel GemsText;
-    private javax.swing.JLabel HardCheaterPlaceholder;
-    private javax.swing.JLabel HardCheaterText;
-    private javax.swing.JPanel Home;
     private javax.swing.JLabel LevelPlaceholder;
     private javax.swing.JLabel LevelText;
     private javax.swing.JLabel MoneyPlaceholder;
     private javax.swing.JLabel MoneyText;
+    private javax.swing.JLabel OtherTitle;
+    private javax.swing.JLabel OtherTitle1;
+    private javax.swing.JLabel OtherTitle2;
+    private javax.swing.JLabel Packsboughtplaceholder;
+    private javax.swing.JLabel Packsopenedplaceholder;
     private javax.swing.JLabel UserBannedPlaceholder;
     private javax.swing.JLabel UserBannedText;
     private javax.swing.JLabel UsernamePlaceHolder;
     private javax.swing.JLabel UsernameText;
+    private javax.swing.JLabel defeatsplaceholder;
+    private javax.swing.JLabel defeatstext;
+    private javax.swing.JPanel home;
     private javax.swing.JSeparator jSeparator1;
-    private com.baker.tabbed.MaterialTabbed materialTabbed1;
+    private javax.swing.JLabel packsboughttext;
+    private javax.swing.JLabel packsopenedtext;
+    private javax.swing.JPanel saveEditor;
+    private javax.swing.JLabel tiesplaceholder;
+    private javax.swing.JLabel tiestext;
+    private javax.swing.JLabel totalMatchesPlaceholder;
+    private javax.swing.JLabel totalmatchestext;
     private javax.swing.JPanel userInfoPanel;
+    private javax.swing.JLabel victoriesplaceholder;
+    private javax.swing.JLabel victoriestext;
+    private javax.swing.JLabel winstraktext;
+    private javax.swing.JLabel winstreakplaceholder;
     // End of variables declaration//GEN-END:variables
 }
