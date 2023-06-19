@@ -4,7 +4,7 @@
 package com.baker.friendsvsfriendsinfogetter;
 
 import com.baker.firstInterface.FirstScreen;
-import com.baker.firstInterface.UserInfoPanel;
+import com.baker.firstInterface.AllPanels;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import javax.swing.UIManager;
@@ -25,7 +25,7 @@ public class FriendsVsFriendsInfoGetter {
             }
             //Starting the initial screen
             FirstScreen initialScreen = new FirstScreen();
-            initialScreen.sendApiInfo();
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

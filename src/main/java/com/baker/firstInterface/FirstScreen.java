@@ -33,12 +33,7 @@ public class FirstScreen extends javax.swing.JFrame {
         //Showing the screen
         setVisible(true);
     }
-    private JSONObject apiInfo;
 
-    public JSONObject sendApiInfo() {
-
-        return apiInfo;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,6 +69,11 @@ public class FirstScreen extends javax.swing.JFrame {
 
         authTokenTextField.setForeground(new java.awt.Color(255, 255, 255));
         authTokenTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        authTokenTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                authTokenTextFieldActionPerformed(evt);
+            }
+        });
 
         doneButton.setText("Next");
         doneButton.setFocusPainted(false);
@@ -157,16 +157,22 @@ public class FirstScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_doneButtonMouseClicked
 
     private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
+        startNextPanel();
+    }//GEN-LAST:event_doneButtonActionPerformed
+
+    
+    private void authTokenTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authTokenTextFieldActionPerformed
+        startNextPanel();
+    }//GEN-LAST:event_authTokenTextFieldActionPerformed
+
+        private void startNextPanel(){
         // Get the user input
         String authToken = authTokenTextField.getText();
         try {
             if (!authToken.isEmpty()) {
-                // Calling requestApiUser to check if the friends vs friends token still works
-                RequestGet apiUser = new RequestGet();
-                apiInfo = apiUser.requestApiUser(authToken);
                 
                 // Calling the new panel and sending the user data
-                UserInfoPanel infoPanel = new UserInfoPanel(apiInfo);
+                AllPanels infoPanel = new AllPanels(authToken);
                 
                 // Panel Content Overwrite
                 content.removeAll();
@@ -184,11 +190,11 @@ public class FirstScreen extends javax.swing.JFrame {
                 throw new SimpleException("The text field can't be empty");
             }
         } catch (SimpleException e) {
+            authTokenTextField.setText(null);
             JOptionPane.showMessageDialog(null, e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
-
-    }//GEN-LAST:event_doneButtonActionPerformed
-
+    }
+    
     /**
      * @param args the command line arguments
      */

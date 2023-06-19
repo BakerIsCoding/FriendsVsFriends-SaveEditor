@@ -5,6 +5,7 @@
 package com.baker.utils;
 
 import com.baker.simpleExceptions.SimpleException;
+import org.json.JSONObject;
 
 /**
  *
@@ -30,4 +31,25 @@ public class TypesChangers {
             throw new SimpleException("Something went wrong trying to convert " + userBool + " to String");
         }
     }
+    
+    public Integer StringToInteger(String userString) throws SimpleException{
+        try {
+            return Integer.parseInt(userString);
+        } catch (Exception e) {
+            System.out.println("Something went wrong trying to convert " + userString + " to Integer");
+            throw new SimpleException("Input a number, not text");
+        }
+    }
+    
+    public String jsonObjectToString(JSONObject userJsonObject) throws SimpleException{
+        try {
+            String convertedJsonObject = userJsonObject.toString();
+            return convertedJsonObject;
+        } catch (Exception e) {
+            throw new SimpleException("Something went wrong trying to convert " + userJsonObject + " to String");
+        }
+        
+        
+    }
+    
 }
