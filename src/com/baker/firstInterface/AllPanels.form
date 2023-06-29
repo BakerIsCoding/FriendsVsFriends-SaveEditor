@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="AllPanels" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="AllPanels" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="com.baker.tabbed.MaterialTabbed" name="AllPanels">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="3e" green="3e" red="3e" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="userInfo"/>
+      </AccessibilityProperties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="userInfoPanel">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="User Stats">
+                <Property name="tabTitle" type="java.lang.String" value="User Stats"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="DeveloperText" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="DeveloperPlaceHolder" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="UserBannedText" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="UserBannedPlaceholder" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="CheaterText" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="CheaterPlaceholder" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="AccountText" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                                      <Component id="AccouintCreationPlaceHolder" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ExpText" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LevelText" min="-2" max="-2" attributes="0"/>
+                                          <Component id="UsernameText" min="-2" max="-2" attributes="0"/>
+                                          <Component id="MoneyText" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="GemsText" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="FriendCodeText" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="UsernamePlaceHolder" min="-2" max="-2" attributes="0"/>
+                                          <Component id="MoneyPlaceholder" min="-2" max="-2" attributes="0"/>
+                                          <Component id="GemsPlaceholder" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LevelPlaceholder" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ExpPlaceHolder" min="-2" max="-2" attributes="0"/>
+                                          <Component id="FriendCodePlaceHolder" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="OtherTitle1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="111" pref="111" max="-2" attributes="0"/>
+                              <Component id="OtherTitle" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                              <Component id="reloadStatsButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="victoriestext" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tiestext" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="packsopenedtext" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="defeatstext" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="totalmatchestext" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="packsboughttext" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="winstraktext" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Packsopenedplaceholder" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Packsboughtplaceholder" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="victoriesplaceholder" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tiesplaceholder" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="defeatsplaceholder" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="winstreakplaceholder" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="totalMatchesPlaceholder" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jSeparator1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="OtherTitle1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="UsernameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="UsernamePlaceHolder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="FriendCodePlaceHolder" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="FriendCodeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="MoneyText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="MoneyPlaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="GemsText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="GemsPlaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="LevelText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LevelPlaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="ExpText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ExpPlaceHolder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="AccountText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="AccouintCreationPlaceHolder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="CheaterText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CheaterPlaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="UserBannedText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="UserBannedPlaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="DeveloperText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DeveloperPlaceHolder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="OtherTitle" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="packsboughttext" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Packsboughtplaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="packsopenedtext" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Packsopenedplaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="victoriestext" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="victoriesplaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tiestext" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tiesplaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="defeatstext" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="defeatsplaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="winstraktext" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="winstreakplaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="totalmatchestext" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="totalMatchesPlaceholder" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="reloadStatsButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JSeparator" name="jSeparator1">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="orientation" type="int" value="1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="UsernameText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Username: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="UsernamePlaceHolder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="e0" green="93" red="cc" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="AccountText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Creation date:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="AccouintCreationPlaceHolder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="UserBannedText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="User Banned: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="UserBannedPlaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="CheaterText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cheater: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="CheaterPlaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="GemsText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Gems:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="GemsPlaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="MoneyText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Money:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="MoneyPlaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LevelText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Level:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="LevelPlaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ExpText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Exp:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ExpPlaceHolder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="FriendCodeText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Friend Code:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="FriendCodePlaceHolder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="DeveloperText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Developer:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="DeveloperPlaceHolder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="OtherTitle">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="3"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Other"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="packsopenedtext">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Packs opened:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Packsopenedplaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="victoriestext">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Victories:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="victoriesplaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="tiestext">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ties:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="tiesplaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="defeatsplaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="defeatstext">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Defeats:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="winstraktext">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Winstreak:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="winstreakplaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="totalmatchestext">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Total Matches:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="totalMatchesPlaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="packsboughttext">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Packs Bought:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Packsboughtplaceholder">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="d8" green="9b" red="c8" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="placeholder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="OtherTitle1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="3"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="User Info"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="reloadStatsButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reload Stats"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reloadStatsButtonActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="matchEditor">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Save Editor">
+                <Property name="tabTitle" type="java.lang.String" value="Save Editor"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="CharacterText" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <Component id="characterComboBox" min="-2" pref="114" max="-2" attributes="0"/>
+                              <EmptySpace pref="73" max="32767" attributes="0"/>
+                              <Component id="KillsText" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <Component id="KillsCombo" min="-2" pref="114" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lose5" min="-2" pref="139" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      <Component id="level10" min="-2" pref="139" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lose1" min="-2" pref="139" max="-2" attributes="0"/>
+                                          <Component id="win5" min="-2" pref="139" max="-2" attributes="0"/>
+                                          <Component id="win1" min="-2" pref="139" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="level1" alignment="1" min="-2" pref="139" max="-2" attributes="0"/>
+                                          <Component id="level3" alignment="1" min="-2" pref="139" max="-2" attributes="0"/>
+                                          <Component id="level5" alignment="1" min="-2" pref="139" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="add20000money" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="add1000money" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="add5000money" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="add10000money" min="-2" pref="139" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="245" max="-2" attributes="0"/>
+                      <Component id="MainTitle" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="MainTitle" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="CharacterText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="characterComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="KillsText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="KillsCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="win1" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="level1" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="add1000money" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="win5" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="level3" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="add5000money" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lose1" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="level5" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="add10000money" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lose5" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="add20000money" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="level10" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="76" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="MainTitle">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="3"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Save Editor"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="CharacterText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Character:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="characterComboBox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="10">
+                    <StringItem index="0" value="Moose Salto"/>
+                    <StringItem index="1" value="Donnie B."/>
+                    <StringItem index="2" value="Sable Santana"/>
+                    <StringItem index="3" value="Duck Anderson"/>
+                    <StringItem index="4" value="Stevie Gull"/>
+                    <StringItem index="5" value="Little lars"/>
+                    <StringItem index="6" value="DJ Newton"/>
+                    <StringItem index="7" value="Spike Remington"/>
+                    <StringItem index="8" value="MYK Reaver"/>
+                    <StringItem index="9" value="Haru"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="characterComboBoxActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="KillsText">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Kills:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="KillsCombo">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="11">
+                    <StringItem index="0" value="0"/>
+                    <StringItem index="1" value="1"/>
+                    <StringItem index="2" value="2"/>
+                    <StringItem index="3" value="3"/>
+                    <StringItem index="4" value="4"/>
+                    <StringItem index="5" value="5"/>
+                    <StringItem index="6" value="6"/>
+                    <StringItem index="7" value="7"/>
+                    <StringItem index="8" value="8"/>
+                    <StringItem index="9" value="9"/>
+                    <StringItem index="10" value="10"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KillsComboActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="win1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 1 win"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="win1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="win5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 5 wins"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="win5ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="lose1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 1 lose"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lose1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="lose5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 5 loses"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lose5ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="level1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 1 level"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="level3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 3 levels"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level3ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="level5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 5 levels"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level5ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="level10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 10 levels"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level10ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="add1000money">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 1000$"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add1000moneyActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="add5000money">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 5000$"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add5000moneyActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="add10000money">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 10000$"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add10000moneyActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="add20000money">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add 20000$"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add20000moneyActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
