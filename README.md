@@ -57,6 +57,6 @@ For support, add me on discord [__bakerisnull__](https://discord.com/users/46905
 
 
 ## Authors
-- [@BakerIsCoding](https://github.com/BakerIsCoding)
+- [@BakerIsCoding](https://github.com/BakerIsCoding)  
 Also thanks [@CourtesiLOL](https://github.com/courtesilol) for helping me with the project
 
