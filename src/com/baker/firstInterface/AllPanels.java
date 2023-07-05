@@ -33,8 +33,8 @@ public class AllPanels extends javax.swing.JPanel {
         // Set size and location
         setSize(584, 578);
         setLocation(0, 0);
-
         userStatsPanel();
+        System.out.println("Started!");
 
     }
 
@@ -54,8 +54,8 @@ public class AllPanels extends javax.swing.JPanel {
             allData = apiUser.requestApiUser(newAuthToken);
             userData = allData.getJSONObject("user");
             userStat = userData.getJSONObject("stats");
-
-            System.out.println(allData);
+            
+            //System.out.println(allData);
             //Calling writeOnLabels to write all the data on the labels lol
 
         } catch (org.json.JSONException e) {
@@ -108,7 +108,7 @@ public class AllPanels extends javax.swing.JPanel {
             Packsboughtplaceholder.setText(packsBought);
             totalMatchesPlaceholder.setText(totalMatches);
             defeatsplaceholder.setText(defeats);
-
+            
             // Match Editor Panel
         } catch (org.json.JSONException e) {
             throw new SimpleException("Error while extracting information about your account, contact the developer. \n" + e.getMessage());
@@ -704,7 +704,7 @@ public class AllPanels extends javax.swing.JPanel {
 
     }
 
-    private void addLevels(Integer levelQuantity) {
+    private void addLevels(Integer levelQuantity) throws SimpleException {
         boolean isLevelWished = false;
         try {
             //Loading the user data again
@@ -712,14 +712,17 @@ public class AllPanels extends javax.swing.JPanel {
         } catch (SimpleException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
-        
+
         // Saving the level and the level to be reached
         userData = allData.getJSONObject("user");
         userStat = userData.getJSONObject("stats");
         Integer currentlevelUser = userData.getInt("level");
         Integer wishedLevelUser = currentlevelUser + levelQuantity;
-        
-        
+
+        if (currentlevelUser >= 100) {
+            throw new SimpleException("I can't add more levels \nYou reached de max level (100)");
+        }
+
         while (!isLevelWished) {
             try {
                 SaveEditorUtils saveEditorUtil = new SaveEditorUtils();
@@ -727,16 +730,16 @@ public class AllPanels extends javax.swing.JPanel {
                 //Saving character, kills, and win or lose
                 bodyThings[0] = saveEditorUtil.characterType(characterComboBox.getSelectedItem().toString()); //Character
                 bodyThings[1] = KillsCombo.getSelectedItem().toString(); //Kills
-                bodyThings[2] = "1"; //lose
-                
+                bodyThings[2] = "2"; //tie
+
                 //Sending to api
                 sendApiFinal(bodyThings);
-                
+
                 // if the user current level is more or equals to the wished level stop the loop
                 if (currentlevelUser >= wishedLevelUser) {
                     isLevelWished = true;
                 }
-                
+
                 //Reloading the stats again
                 userInfoWriteOnLabels();
                 currentlevelUser = userData.getInt("level");
@@ -756,13 +759,13 @@ public class AllPanels extends javax.swing.JPanel {
         } catch (SimpleException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
-        
+
         //Getting the user Money
         userData = allData.getJSONObject("user");
         userStat = userData.getJSONObject("stats");
         Integer currentMoneyUser = userData.getInt("money");
         Integer wishedMoneyUser = currentMoneyUser + moneyQuantity;
-        
+
         // If the current money user equals max, exception
         if (currentMoneyUser == 20000) {
             throw new SimpleException("I can't add more money \nYou have the max money in your account (20000$) \nWaste it in-game and try it again ");
@@ -770,36 +773,34 @@ public class AllPanels extends javax.swing.JPanel {
         // If the wished money is more than the max, ask for what the program should do
         if (wishedMoneyUser > 20000) {
             int option = JOptionPane.showConfirmDialog(null, "The money you want in your account will exceed the limit,\n I will put $20000, it's ok?", "Warning", JOptionPane.OK_CANCEL_OPTION);
-            
+
             //option = ok max moeny 20 000 else cancel
             if (option == JOptionPane.OK_OPTION) {
                 wishedMoneyUser = 20000;
             } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
                 throw new SimpleException("Canceled");
-                
+
             }
-            
+
         }
         //looping until moneyWished = true
         while (!isMoneyWished) {
             try {
-                
+
                 //Always losing when adding the money, trying to avoid ban lol, no one has been banned before btw
                 SaveEditorUtils saveEditorUtil = new SaveEditorUtils();
                 String[] bodyThings = new String[3];
                 bodyThings[0] = saveEditorUtil.characterType(characterComboBox.getSelectedItem().toString()); //Character
                 bodyThings[1] = KillsCombo.getSelectedItem().toString(); //Kills
-                bodyThings[2] = "1"; //lose
-                
+                bodyThings[2] = "2"; //tie
+
                 //Sending to api
                 sendApiFinal(bodyThings);
-                
-                
+
                 if (currentMoneyUser >= wishedMoneyUser) {
                     isMoneyWished = true;
                 }
-                
-                
+
                 //Reloading stats
                 userInfoWriteOnLabels();
                 currentMoneyUser = userData.getInt("money");
@@ -841,8 +842,13 @@ public class AllPanels extends javax.swing.JPanel {
     }//GEN-LAST:event_KillsComboActionPerformed
 
     private void add20000moneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add20000moneyActionPerformed
+        int option = JOptionPane.showConfirmDialog(null, "Press Ok, and wait 3 - 5 minutes", "Warning", JOptionPane.OK_CANCEL_OPTION);
         try {
-            addMoney(20000);
+            if (option == JOptionPane.OK_OPTION) {
+                addMoney(20000);
+            } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
+                JOptionPane.showMessageDialog(null, "Canceled");
+            }
         } catch (SimpleException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -911,22 +917,30 @@ public class AllPanels extends javax.swing.JPanel {
 
     private void level1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level1ActionPerformed
         int option = JOptionPane.showConfirmDialog(null, "Press Ok, and wait 10 - 40 seconds", "Warning", JOptionPane.OK_CANCEL_OPTION);
-
-        if (option == JOptionPane.OK_OPTION) {
-            addLevels(1);
-        } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
-            JOptionPane.showMessageDialog(null, "Canceled");
+        try {
+            if (option == JOptionPane.OK_OPTION) {
+                addLevels(1);
+            } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
+                JOptionPane.showMessageDialog(null, "Canceled");
+            }
+        } catch (SimpleException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
+
 
     }//GEN-LAST:event_level1ActionPerformed
 
     private void level3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level3ActionPerformed
         int option = JOptionPane.showConfirmDialog(null, "Press Ok, and wait 30 - 60 seconds", "Warning", JOptionPane.OK_CANCEL_OPTION);
 
-        if (option == JOptionPane.OK_OPTION) {
-            addLevels(3);
-        } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
-            JOptionPane.showMessageDialog(null, "Canceled");
+        try {
+            if (option == JOptionPane.OK_OPTION) {
+                addLevels(3);
+            } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
+                JOptionPane.showMessageDialog(null, "Canceled");
+            }
+        } catch (SimpleException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
 
 
@@ -935,10 +949,14 @@ public class AllPanels extends javax.swing.JPanel {
     private void level5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level5ActionPerformed
         int option = JOptionPane.showConfirmDialog(null, "Press Ok, and wait 1 - 2 minutes", "Warning", JOptionPane.OK_CANCEL_OPTION);
 
-        if (option == JOptionPane.OK_OPTION) {
-            addLevels(5);
-        } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
-            JOptionPane.showMessageDialog(null, "Canceled");
+        try {
+            if (option == JOptionPane.OK_OPTION) {
+                addLevels(5);
+            } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
+                JOptionPane.showMessageDialog(null, "Canceled");
+            }
+        } catch (SimpleException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
 
 
@@ -947,32 +965,50 @@ public class AllPanels extends javax.swing.JPanel {
     private void level10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level10ActionPerformed
         int option = JOptionPane.showConfirmDialog(null, "Press Ok, and wait 3 - 5 minutes", "Warning", JOptionPane.OK_CANCEL_OPTION);
 
-        if (option == JOptionPane.OK_OPTION) {
-            addLevels(10);
-        } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
-            JOptionPane.showMessageDialog(null, "Canceled");
+        try {
+            if (option == JOptionPane.OK_OPTION) {
+                addLevels(10);
+            } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
+                JOptionPane.showMessageDialog(null, "Canceled");
+            }
+        } catch (SimpleException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
 
 
     }//GEN-LAST:event_level10ActionPerformed
 
     private void add1000moneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add1000moneyActionPerformed
+        int option = JOptionPane.showConfirmDialog(null, "Press Ok, and wait 10 - 40 seconds", "Warning", JOptionPane.OK_CANCEL_OPTION);
+
         try {
-            addMoney(1000);
+            if (option == JOptionPane.OK_OPTION) {
+                addMoney(1000);
+            } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
+                JOptionPane.showMessageDialog(null, "Canceled");
+            }
+
         } catch (SimpleException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_add1000moneyActionPerformed
 
     private void add5000moneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add5000moneyActionPerformed
+        int option = JOptionPane.showConfirmDialog(null, "Press Ok, and wait 30 - 60 seconds", "Warning", JOptionPane.OK_CANCEL_OPTION);
         try {
-            addMoney(5000);
+            if (option == JOptionPane.OK_OPTION) {
+                addMoney(5000);
+            } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
+                JOptionPane.showMessageDialog(null, "Canceled");
+            }
+
         } catch (SimpleException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_add5000moneyActionPerformed
 
     private void add10000moneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add10000moneyActionPerformed
+        int option = JOptionPane.showConfirmDialog(null, "Press Ok, and wait 1 - 2 minutes", "Warning", JOptionPane.OK_CANCEL_OPTION);
         try {
             addMoney(10000);
         } catch (SimpleException e) {

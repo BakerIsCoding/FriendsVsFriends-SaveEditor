@@ -63,7 +63,7 @@ public class RequestGet {
             
             //Checking the response Code
             if (responseCodeFromRequest == 0) {
-                System.out.println("Code 0!");
+                System.out.println("Working token, code 0");
             } else if (responseCodeFromRequest == -9){
                 throw new SimpleException("Invalid token \nTry to relogin and paste the token again");
             }else{

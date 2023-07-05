@@ -50,6 +50,7 @@ public class FirstScreen extends javax.swing.JFrame {
         authTokenTextField = new javax.swing.JTextField();
         doneButton = new javax.swing.JButton();
         separator = new javax.swing.JSeparator();
+        versionText = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,6 +97,8 @@ public class FirstScreen extends javax.swing.JFrame {
 
         separator.setForeground(new java.awt.Color(200, 155, 216));
 
+        versionText.setText("Ver: 1.1");
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
@@ -113,7 +116,10 @@ public class FirstScreen extends javax.swing.JFrame {
                         .addGap(186, 186, 186))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
                         .addComponent(authTokenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))))
+                        .addGap(41, 41, 41))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
+                        .addComponent(versionText)
+                        .addContainerGap())))
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +132,9 @@ public class FirstScreen extends javax.swing.JFrame {
                 .addComponent(authTokenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(doneButton)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(versionText)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -237,5 +245,6 @@ public class FirstScreen extends javax.swing.JFrame {
     private javax.swing.JButton doneButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator separator;
+    private javax.swing.JLabel versionText;
     // End of variables declaration//GEN-END:variables
 }
