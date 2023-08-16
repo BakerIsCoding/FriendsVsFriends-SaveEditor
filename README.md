@@ -1,4 +1,4 @@
-
+## Working on 1.1.6 Update
 # FriendsVsFriends-SaveEditor
 
 Friends Vs Friends __Save Editor__ is a tool that allows you to view and edit the money and level of the "Friends Vs Friends" game.  
@@ -21,8 +21,6 @@ Go to releases and download the lastest version, or [click here](https://github.
 ✅ Match Editor  
 ✅ Money Editor   
 ✅ Level Editor  
-❌ Deck Editor  
-❌ Lobby Stats Viewer   
 
 
 ## App Review
