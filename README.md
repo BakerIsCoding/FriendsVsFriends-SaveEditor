@@ -1,4 +1,6 @@
-## Working on 1.1.6 Update
+## Patched on version 1.2.5 !!!
+FvF now is using some type of client / server encryption
+
 # FriendsVsFriends-SaveEditor
 
 Friends Vs Friends __Save Editor__ is a tool that allows you to view and edit the money and level of the "Friends Vs Friends" game.  
